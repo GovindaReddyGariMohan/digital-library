@@ -39,7 +39,7 @@ const Returnbook = ({  issuedBook }) => {
         <div className="return-book">
             <div className="title">Return Book</div>
             <div className="navigate-to-dashboard">
-                <Link to='/Dashboard'> <i className="fa-solid fa-arrow-left"></i> Dashboard</Link>
+                <Link to='digital-library/Dashboard'> <i className="fa-solid fa-arrow-left"></i> Dashboard</Link>
             </div>
             <div>
                 <form onSubmit={handleSubmit}>

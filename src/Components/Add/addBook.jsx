@@ -106,14 +106,14 @@ const Addbook = () => {
             .catch((error) => {
                 console.log(error)
             })
-            navigate('/Dashboard')
+            navigate('digital-library/Dashboard')
             // window.location.reload()
     }
     return (
         <div className="add-book">
             <div className="title">  Add Book </div>
             <div className="navigate-to-dashboard">
-               <Link to='/Dashboard'> <i className="fa-solid fa-arrow-left"></i> Dashboard</Link>
+               <Link to='digital-library/Dashboard'> <i className="fa-solid fa-arrow-left"></i> Dashboard</Link>
             </div>
             <form onSubmit={handleSubmit}>
                 <table >

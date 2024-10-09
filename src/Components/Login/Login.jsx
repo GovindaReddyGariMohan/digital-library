@@ -31,7 +31,7 @@ const Login = () => {
 
     useEffect(() => {
         if (isLoggedIn === true) {
-            navigate('/Dashboard')
+            navigate('digital-library/Dashboard')
         }
     }, [isLoggedIn, navigate])
 
@@ -44,7 +44,7 @@ const Login = () => {
             return value.userName === userName && value.userPassword === userPassword
         })
         if (userId.length === 1) {
-            navigate('/Dashboard')
+            navigate('digital-library/Dashboard')
             localStorage.setItem('userName', userName)
             localStorage.setItem('userPassword', userPassword)
         } else {
@@ -92,7 +92,7 @@ const Login = () => {
             })
         localStorage.setItem('userName', userName)
         localStorage.setItem('userPassword', userPassword)
-        navigate('/Dashboard')
+        navigate('digital-library/Dashboard')
 
     }
 

@@ -21,13 +21,13 @@ const Students = () => {
             .catch((error) => {
                 console.log(error)
             })
-        navigate('/Dashboard')
+        navigate('digital-library/Dashboard')
     }
     return (
         <div className="Add-Student">
             <div className="title"> Add Student</div>
             <div className="navigate-to-dashboard">
-                <Link to='/Dashboard'> <i className="fa-solid fa-arrow-left"></i> Dashboard</Link>
+                <Link to='digital-library/Dashboard'> <i className="fa-solid fa-arrow-left"></i> Dashboard</Link>
             </div>
             <form onSubmit={handleSubmit}>
                 <div className="student-details">

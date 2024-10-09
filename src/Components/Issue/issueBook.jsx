@@ -57,7 +57,7 @@ const Issuebook = ({ data, students, setData }) => {
                     .catch((error) => {
                         console.log(error)
                     })
-                navigate('/Dashboard')
+                navigate('digital-library/Dashboard')
                 window.location.reload()
             } else {
                 console.log('student not exit')
@@ -69,7 +69,7 @@ const Issuebook = ({ data, students, setData }) => {
         <div className="Issuebook">
             <div className="title"> Issue Book</div>
             <div className="navigate-to-dashboard">
-                <Link to='/Dashboard'> <i className="fa-solid fa-arrow-left"></i> Dashboard</Link>
+                <Link to='digital-library/Dashboard'> <i className="fa-solid fa-arrow-left"></i> Dashboard</Link>
             </div>
 
             <div className="issue-book-content">
