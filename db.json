@@ -1,0 +1,151 @@
+{
+  "books": [
+    {
+      "id": "7679",
+      "name": "Utopia",
+      "number": "10",
+      "author": "Sir Thomas ",
+      "publication": "Thomas More, published in 1516",
+      "Branch": "IT",
+      "qty": 2,
+      "price": "100",
+      "details": "Utopia is a work of fiction and socio-political satire by Thomas More, written in Latin and published in 1516."
+    },
+    {
+      "id": "5d44",
+      "name": "Waste Land",
+      "number": "15",
+      "author": "T.S Eliot",
+      "publication": "poem The Waste Land was published in 1922",
+      "Branch": "IT",
+      "qty": 2,
+      "price": "150",
+      "details": "The Waste Land is a poem by T. S. Eliot, widely regarded as one of the most important English-language poems"
+    },
+    {
+      "id": "975b",
+      "name": "Time Machine",
+      "number": "12",
+      "author": "H.G Wells",
+      "publication": "published in book form in 1895",
+      "Branch": "Mechanical",
+      "qty": 1,
+      "price": "200",
+      "details": "The Time Machine is an 1895 dystopian post-apocalyptic science fiction novella by H. G. Wells"
+    }
+  ],
+  "students": [
+    {
+      "id": "d840",
+      "name": "mohan",
+      "mail": "mohan@gmail.com",
+      "branch": "IT"
+    },
+    {
+      "id": "cf2c",
+      "name": "mohantarak",
+      "mail": "mohan123@gmail.com",
+      "branch": "Mechanical"
+    },
+    {
+      "id": "ccf7",
+      "name": "maruthi",
+      "mail": "maruthi@gmail.com",
+      "branch": "select"
+    },
+    {
+      "id": "311d",
+      "name": "maruthi kl",
+      "mail": "maruthi123@gmail.com",
+      "branch": "IT"
+    },
+    {
+      "id": "2809",
+      "name": "mohan g",
+      "mail": "mohan234@gmail.com",
+      "branch": "Civil"
+    },
+    {
+      "id": "7de2",
+      "name": "harish",
+      "mail": "harish@gmail.com",
+      "branch": "Mechanical"
+    },
+    {
+      "id": "adaf",
+      "name": "tarak",
+      "mail": "tarak@gmail.com",
+      "branch": "Civil"
+    }
+  ],
+  "IssueBook": [
+    {
+      "id": "3dfc",
+      "name": "tarak",
+      "bookId": "6d1d",
+      "currDate": "03/10/2024",
+      "isbn": "13",
+      "bookName": "The Tempest",
+      "author": "T.S Eliot"
+    },
+    {
+      "id": "5895",
+      "name": "tarak",
+      "bookId": "7679",
+      "currDate": "04/10/2024",
+      "isbn": "10",
+      "bookName": "Utopia",
+      "author": "Sir Thomas "
+    },
+    {
+      "id": "7679",
+      "name": "harish",
+      "currDate": "04/10/2024",
+      "isbn": "10",
+      "bookName": "Utopia",
+      "author": "Sir Thomas "
+    },
+    {
+      "id": "975b",
+      "name": "harish",
+      "currDate": "04/10/2024",
+      "isbn": "12",
+      "bookName": "Time Machine",
+      "author": "H.G Wells"
+    },
+    {
+      "id": "7679",
+      "name": "maruthi",
+      "currDate": "07/10/2024",
+      "isbn": "10",
+      "bookName": "Utopia",
+      "author": "Sir Thomas "
+    }
+  ],
+  "UserDetails": [
+    {
+      "id": "ce7b",
+      "Uname": "mohan",
+      "mail": "mohan@gmail.com",
+      "password": "2345789"
+    },
+    {
+      "id": "45da",
+      "Uname": "maruthi",
+      "mail": "maruthi@gmail.com",
+      "password": "3456789"
+    },
+    {
+      "id": "11c6",
+      "Uname": "harish",
+      "mail": "harish@gmail.com",
+      "password": "kjhgffgh"
+    },
+    {
+      "id": "ae1a",
+      "Uname": "tarak",
+      "mail": "tarak@gmail.com",
+      "password": "9876598765"
+    }
+  ]
+}

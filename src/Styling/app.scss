@@ -1,0 +1,608 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    border-collapse: collapse;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+// .user-login-register{
+
+// }
+
+.Login-register {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgb(47 85 151 / 4%), rgba(47, 85, 151, 0.5215686275));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .login-title {
+        color: #2F5597;
+        font-size: 65px;
+        padding: 24px 0;
+    }
+
+    .deactive {
+        display: none;
+    }
+
+    .login-form {
+        // height: 50%;
+        // width: 100vh;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 31px;
+        padding: 33px;
+
+        table {
+            tr td {
+                padding: 10px;
+            }
+        }
+
+        .login-items {
+            // display: flex;
+            // justify-content: space-around;
+            // padding: 10px 0;
+
+            input[type=submit] {
+                width: 100%;
+                // position: absolute;
+                // right: 58px;
+                background-color: #4472C4;
+                color: white;
+                border: none;
+            }
+
+            input {
+                width: 100%;
+                // height: 38px;
+                border: solid 1px;
+                padding: 8px;
+            }
+
+            label {
+                color: red;
+                font-weight: 700;
+            }
+
+            input[type=button] {
+                width: 100%;
+                // position: absolute;
+                // right: 58px;
+                background-color: white;
+                border: none;
+                color: red;
+                font-size: 18px;
+                cursor: pointer;
+                font-weight: 800;
+            }
+        }
+
+    }
+
+    @media only screen and (max-width: 375px) {
+        .login-form {
+            height: 65%;
+            width: 50%;
+
+            table {
+                tr {
+                    padding: 10px;
+                }
+
+                .login-items {
+                    input {
+                        width: 100%;
+                        // height: 38px;
+                        border: solid 1px;
+                        padding: 7px;
+                    }
+                }
+            }
+        }
+
+        .login-title {
+            font-size: 53px;
+        }
+    }
+
+    @media only screen and (max-width: 360px) {
+        .login-form {
+            height: 65%;
+
+            table {
+                .login-items {
+                    input {
+                        padding: 9px;
+                    }
+                }
+            }
+        }
+
+        .login-title {
+            font-size: 53px;
+        }
+    }
+
+    @media only screen and (max-width: 340px) {
+        .login-form {
+            height: 65%;
+        }
+
+        .login-title {
+            font-size: 53px;
+        }
+    }
+
+    // @media only screen and (min-width: 768px) {
+    //     .login-form {
+    //         height: 34%;
+    //     }
+
+    //     .login-title {
+    //         font-size: 53px;
+    //     }
+    // }
+
+    .register-form {
+        // display: none;
+        // height: 68%;
+        //  width: 489px;
+        background-color: white;
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: center;
+        // position: relative;
+        border-radius: 31px;
+        padding: 33px;
+
+        table {
+            tr td {
+                padding: 10px;
+            }
+        }
+
+        .register-items {
+            // display: flex;
+            // justify-content: space-around;
+            padding: 10px 0;
+
+            input[type=submit] {
+                width: 100%;
+                // position: absolute;
+                right: 58px;
+                background-color: #4472C4;
+                color: white;
+                border: solid 1px black;
+            }
+
+            input {
+                width: 100%;
+                padding: 8px;
+            }
+
+            label {
+                color: red;
+                font-weight: 700;
+            }
+
+            input[type=button] {
+                // width: 100%;
+                // position: absolute;
+                // right: 58px;
+                background-color: white;
+                border: none;
+                // bottom: 0;
+                color: red;
+                font-size: 18px;
+                cursor: pointer;
+                font-weight: 800;
+            }
+        }
+
+    }
+
+}
+
+
+
+
+.title {
+    text-align: center;
+    background-color: #2F5597;
+    color: white;
+    font-size: 34px;
+    padding: 8px;
+
+}
+
+.Dashboard {
+    .profile-logout {
+        text-align: end;
+        padding: 20px;
+        cursor: pointer;
+    }
+
+    .Dashboard-body {
+        display: flex;
+
+        .book-status {
+            width: 20%;
+
+            table {
+                padding: 24px;
+
+                tr {
+                    display: flex;
+                    align-items: center;
+
+                    td {
+                        padding: 20px 10px;
+                    }
+                }
+
+                .book-status-item {
+                    font-size: 18px;
+
+                    i {
+                        font-size: 43px;
+                    }
+
+                }
+            }
+
+
+        }
+
+        .Dashboard-charts {
+            width: 80%;
+            padding: 20px;
+
+            .charts {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+
+                // .pie-chart {
+                //     padding: 29px 0;
+                // }
+
+                .flow-chart {
+                    text-align: center;
+                }
+            }
+
+            .issued-books {
+
+                td,
+                th {
+
+                    border: 2px solid olivedrab;
+                    text-align: left;
+                    padding: 8px;
+                }
+
+                tr:nth-child(even) {
+                    background-color: rgba(106, 142, 35, 0.251);
+                }
+
+                tr:hover {
+                    background-color: rgba(106, 142, 35, 0.713);
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 1010px) {
+        .Dashboard-body {
+            .book-status {
+                display: none;
+            }
+
+            .Dashboard-charts {
+                width: 100%;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 800px) {
+        .Dashboard-body {
+            .Dashboard-charts {
+                .charts {
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .issued-books {
+
+                    .issued-books-table {
+                        overflow-x: auto;
+
+                        table {
+                            width: 100%;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+
+}
+
+.apexcharts-menu-icon,
+.apexcharts-reset-icon,
+.apexcharts-zoom-icon {
+    transform: scale(.85);
+    display: none;
+}
+
+.add-book {
+    font-size: 18px;
+
+
+
+    form {
+        table {
+            margin: auto;
+
+            input[type=submit] {
+                width: 100%;
+                background-color: #4472C4;
+                color: white;
+                border: solid 1px black;
+            }
+
+            tr {
+                .deactive {
+                    display: none;
+                }
+
+                .Details-block {
+                    display: none;
+                }
+
+                td {
+                    padding: 10px 0;
+
+                    label {
+                        color: red;
+                        font-weight: 700;
+
+                    }
+
+                    input {
+                        width: 55vh;
+                        height: 5vh;
+                    }
+
+                    .Details {
+                        height: 15vh;
+                    }
+
+                    select {
+                        width: 55vh;
+                        height: 5vh;
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+.navigate-to-dashboard {
+    padding: 20px;
+
+    a {
+        color: red;
+        font-weight: 800;
+        font-size: 20px;
+    }
+
+    a:hover {
+        color: blue;
+    }
+}
+
+.Delete-book {
+    font-size: 18px;
+
+    .delete-book-content {
+        table {
+            margin: auto;
+        }
+
+        td,
+        th {
+
+            border: 2px solid olivedrab;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(106, 142, 35, 0.251);
+        }
+
+        tr:hover {
+            background-color: rgba(106, 142, 35, 0.713);
+        }
+
+        i {
+            cursor: pointer;
+        }
+    }
+
+    @media only screen and (max-width: 800px) {
+
+        .delete-book-content {
+            overflow-x: auto;
+
+            table {
+                width: 100%;
+            }
+        }
+    }
+
+}
+
+.view-book {
+    .view-book-content {
+        table {
+            margin: auto;
+        }
+
+        td,
+        th {
+
+            border: 2px solid olivedrab;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(106, 142, 35, 0.251);
+        }
+
+        tr:hover {
+            background-color: rgba(106, 142, 35, 0.713);
+        }
+    }
+
+    @media only screen and (max-width: 800px) {
+
+        .view-book-content {
+            overflow-x: auto;
+
+            table {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.Issuebook {
+    .issue-book-content {
+        table {
+            margin: auto;
+        }
+
+        td,
+        th {
+            border: 2px solid olivedrab;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(106, 142, 35, 0.251);
+        }
+
+        tr:hover {
+            background-color: rgba(106, 142, 35, 0.713);
+        }
+
+        input[type=submit] {
+            padding: 9px 15px;
+            background-color: #4472C4;
+            color: white;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+        }
+    }
+    @media only screen and (max-width: 800px) {
+
+        .issue-book-content {
+            overflow-x: auto;
+
+            table {
+                width: 100%;
+            }
+        }
+    }
+
+}
+
+.return-book {
+    font-size: 18px;
+
+    table {
+        margin: auto;
+
+        select {
+            width: 100%;
+        }
+
+        button {
+            width: 100%;
+        }
+
+        tr td {
+            padding: 10px;
+        }
+
+        label {
+            color: red;
+            font-weight: 600;
+        }
+    }
+}
+
+.Add-Student {
+    .student-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+        input {
+            padding: 8px;
+            width: 300px;
+        }
+
+        select {
+            padding: 8px 9px;
+            width: 300px;
+        }
+
+        input[type=submit] {
+            background-color: #4472C4;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            width: 100%;
+        }
+    }
+
+    @media only screen and (max-width: 415px) {
+        .student-details {
+            input {
+                // padding: 8px;
+                width: 100%;
+            }
+
+            select {
+                width: 100%;
+                padding: 9px 15px;
+            }
+
+            input[type=submit] {
+                padding: 12px;
+            }
+        }
+    }
+}
