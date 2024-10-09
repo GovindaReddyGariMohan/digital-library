@@ -29,8 +29,9 @@ const Viewbook = ({ data }) => {
     ]
     console.log(data)
     return (
+       <>
+        <div className="title">View Book</div>
         <div className="view-book">
-            <div className="title">View Book</div>
             <div className="navigate-to-dashboard">
                 <Link to='/Dashboard'> <i className="fa-solid fa-arrow-left"></i> Dashboard</Link>
             </div>
@@ -63,6 +64,7 @@ const Viewbook = ({ data }) => {
                 </table>
             </div>
         </div>
+       </>
     )
 }
 

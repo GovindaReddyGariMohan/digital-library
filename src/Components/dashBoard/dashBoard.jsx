@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Charts from "./Chart1";
 import AphexChart from "./Chart2";
 import { Link, useNavigate } from "react-router-dom";
@@ -6,6 +6,13 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Dashboard = ({ issuedBook, data }) => {
     const navigate = useNavigate();
+    const [active, setActive] = useState(false)
+    const handleNavbar = () => {
+        setActive(active ? false : true)
+    }
+    const removeHandler=()=>{
+        setActive(false)
+    }
     const bookItems = [
 
         {
@@ -78,9 +85,13 @@ const Dashboard = ({ issuedBook, data }) => {
     return (
         <div className="Dashboard">
             <div className="title">Dashboard </div>
-            <div onClick={logout} className="profile-logout"><i className="fa-solid fa-right-from-bracket"></i> logout</div>
+            <div className="profile-logout-status">
+                <div className="nav-bar" onClick={handleNavbar}><i className="fa-solid fa-bars"></i></div>
+                <div onClick={logout} className="profile-logout"><i className="fa-solid fa-right-from-bracket"></i> logout</div>
+            </div>
             <div className="Dashboard-body">
-                <div className="book-status">
+                <div  className={active ? "book-status " : "active-item book-status"}>
+                    <i className="fa-solid fa-xmark x-mark" onClick={removeHandler}></i>
                     <table >
                         {
                             bookItems.map((value) => {

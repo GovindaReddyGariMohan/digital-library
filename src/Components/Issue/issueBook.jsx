@@ -66,8 +66,9 @@ const Issuebook = ({ data, students, setData }) => {
 
     }
     return (
+       <>
+        <div className="title"> Issue Book</div>
         <div className="Issuebook">
-            <div className="title"> Issue Book</div>
             <div className="navigate-to-dashboard">
                 <Link to='/Dashboard'> <i className="fa-solid fa-arrow-left"></i> Dashboard</Link>
             </div>
@@ -107,6 +108,7 @@ const Issuebook = ({ data, students, setData }) => {
             </div>
 
         </div>
+       </>
     )
 }
 

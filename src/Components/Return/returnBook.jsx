@@ -36,8 +36,9 @@ const Returnbook = ({  issuedBook }) => {
 
 
     return (
+      <>
+       <div className="title">Return Book</div>
         <div className="return-book">
-            <div className="title">Return Book</div>
             <div className="navigate-to-dashboard">
                 <Link to='/Dashboard'> <i className="fa-solid fa-arrow-left"></i> Dashboard</Link>
             </div>
@@ -116,6 +117,7 @@ const Returnbook = ({  issuedBook }) => {
             </div>
             <div>{notFound}</div>
         </div>
+      </>
     )
 }
 export default Returnbook;

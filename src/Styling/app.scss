@@ -23,9 +23,11 @@ a {
     justify-content: center;
 
     .login-title {
-        color: #2F5597;
-        font-size: 65px;
-        padding: 24px 0;
+        text-align: center;
+        background-color: #2F5597;
+        color: white;
+        font-size: 34px;
+        padding: 8px;
     }
 
     .deactive {
@@ -222,14 +224,30 @@ a {
     color: white;
     font-size: 34px;
     padding: 8px;
-
+    position: fixed;
+    width: 100%;
+    z-index: 76567;
 }
 
 .Dashboard {
-    .profile-logout {
-        text-align: end;
+
+    .profile-logout-status {
         padding: 20px;
-        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        position: fixed;
+        width: 100%;
+        top: 45px;
+        background: white;
+        z-index: 876;
+
+        .profile-logout {
+            cursor: pointer;
+        }
+
+        .nav-bar {
+            visibility: hidden;
+        }
     }
 
     .Dashboard-body {
@@ -237,6 +255,11 @@ a {
 
         .book-status {
             width: 20%;
+            margin-top: 92px;
+
+            .x-mark {
+                display: none;
+            }
 
             table {
                 padding: 24px;
@@ -266,6 +289,7 @@ a {
         .Dashboard-charts {
             width: 80%;
             padding: 20px;
+            margin-top: 90px;
 
             .charts {
                 display: flex;
@@ -303,9 +327,33 @@ a {
     }
 
     @media only screen and (max-width: 1010px) {
+        .profile-logout-status {
+            .nav-bar {
+                visibility: visible;
+                cursor: pointer;
+            }
+        }
+
         .Dashboard-body {
-            .book-status {
+            .active-item {
                 display: none;
+            }
+
+            .book-status {
+                position: fixed;
+                background: #f2eded;
+                z-index: 664;
+                top: 4px;
+                width: 50%;
+                bottom: 0;
+
+                .x-mark {
+                    display: block;
+                    font-size: 29px;
+                    text-align: end;
+                    padding: 15px;
+                    cursor: pointer;
+                }
             }
 
             .Dashboard-charts {
@@ -350,7 +398,7 @@ a {
 
 .add-book {
     font-size: 18px;
-
+    padding-top: 59px;
 
 
     form {
@@ -418,7 +466,7 @@ a {
 
 .Delete-book {
     font-size: 18px;
-
+    padding-top: 59px;
     .delete-book-content {
         table {
             margin: auto;
@@ -459,6 +507,7 @@ a {
 }
 
 .view-book {
+    padding-top: 59px;
     .view-book-content {
         table {
             margin: auto;
@@ -494,6 +543,7 @@ a {
 }
 
 .Issuebook {
+    padding-top: 59px;
     .issue-book-content {
         table {
             margin: auto;
@@ -523,6 +573,7 @@ a {
             cursor: pointer;
         }
     }
+
     @media only screen and (max-width: 800px) {
 
         .issue-book-content {
@@ -538,7 +589,7 @@ a {
 
 .return-book {
     font-size: 18px;
-
+    padding-top: 59px;
     table {
         margin: auto;
 
@@ -562,6 +613,7 @@ a {
 }
 
 .Add-Student {
+    padding-top: 59px;
     .student-details {
         display: flex;
         flex-direction: column;
