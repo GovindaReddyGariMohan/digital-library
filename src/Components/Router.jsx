@@ -13,9 +13,9 @@ const Routerid = ({ data, setData, students, issuedBook, setIssuedbook }) => {
    
     return (
         <div>
-            <BrowserRouter>
+          
                 <Routes>
-                    <Route path="digital-library/" element={<Login />} />
+                    <Route path="/" element={<Login />} />
                     <Route path="Dashboard" element={<Dashboard issuedBook={issuedBook} data={data} />} />
                     <Route path="Add" element={<Addbook data={data} />} />
                     <Route path="Delete" element={<Delete data={data} setData={setData} />} />
@@ -25,7 +25,7 @@ const Routerid = ({ data, setData, students, issuedBook, setIssuedbook }) => {
                     <Route path="Students" element={<Students />} />
                   
                 </Routes>
-            </BrowserRouter>
+           
         </div>
     )
 }
