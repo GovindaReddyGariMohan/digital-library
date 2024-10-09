@@ -45,7 +45,7 @@ const Delete = ({ data,setData }) => {
         <div className="Delete-book">
             <div className="title"> Delete Book</div>
             <div className="navigate-to-dashboard">
-                <Link to='digital-library/Dashboard'> <i className="fa-solid fa-arrow-left"></i> Dashboard</Link>
+                <Link to='/Dashboard'> <i className="fa-solid fa-arrow-left"></i> Dashboard</Link>
             </div>
             <div className="delete-book-content">
                 <table>

@@ -69,7 +69,7 @@ const Dashboard = ({ issuedBook, data }) => {
     const logout = () => {
         localStorage.removeItem('userName')
         localStorage.removeItem('userPassword')
-        navigate('/')
+        navigate('digital-library/')
 
     }
 

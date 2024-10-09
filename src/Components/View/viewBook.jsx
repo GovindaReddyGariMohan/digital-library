@@ -32,7 +32,7 @@ const Viewbook = ({ data }) => {
         <div className="view-book">
             <div className="title">View Book</div>
             <div className="navigate-to-dashboard">
-                <Link to='digital-library/Dashboard'> <i className="fa-solid fa-arrow-left"></i> Dashboard</Link>
+                <Link to='/Dashboard'> <i className="fa-solid fa-arrow-left"></i> Dashboard</Link>
             </div>
             <div className="view-book-content">
                 <table>
