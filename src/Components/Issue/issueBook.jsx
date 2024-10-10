@@ -79,9 +79,9 @@ const Issuebook = ({ data, students, setData }) => {
                 //         'Content-Type': 'application/json'
                 //     },
                 // })
-                // navigate('/Dashboard')
+                navigate('/Dashboard')
 
-                // window.location.reload()
+                window.location.reload()
             } else {
                 console.log('student not exit')
             }
