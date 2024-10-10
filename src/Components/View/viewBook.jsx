@@ -27,7 +27,7 @@ const Viewbook = ({ data }) => {
             heading: 'Details'
         }
     ]
-    console.log(data)
+    
     return (
        <>
         <div className="title">View Book</div>

@@ -7,21 +7,29 @@ const Students = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        var data = new FormData();
         const name = e.target.name.value;
         const mail = e.target.mail.value;
         const branch = e.target.branch.value;
-        axios.post("https://digital-librara-data.onrender.com/students", {
-            name,
-            mail,
-            branch
+        const payload = {
+            name: name,
+            mail: mail,
+            branch: branch
+        };
+        data.append("books", JSON.stringify(payload));
+        axios('https://digital-librara-data.onrender.com/students', {
+            method: 'POST',
+            body: data,
+            headers: {
+                'Content-Type': 'application/json'
+            }
         })
-            .then((res) => {
-                console.log(res)
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-        navigate('/Dashboard')
+            .then(function (response) {
+                return response.json()
+            }).then(function (body) {
+                console.log(body);
+            });
+            navigate('/Dashboard')
     }
     return (
         <>
