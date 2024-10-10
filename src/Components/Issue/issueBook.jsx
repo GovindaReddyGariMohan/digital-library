@@ -81,7 +81,7 @@ const Issuebook = ({ data, students, setData }) => {
                 // })
                 navigate('/Dashboard')
 
-                window.location.reload()
+                
             } else {
                 console.log('student not exit')
             }
