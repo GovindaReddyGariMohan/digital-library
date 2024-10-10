@@ -44,21 +44,44 @@ const Issuebook = ({ data, students, setData }) => {
         const name = e.target.name.value
         const currDate = new Date().toLocaleDateString();
 
-        students.forEach((product) => {
+        students.forEach(async (product) => {
             if (product.name === name) {
-                axios.post("https://digital-librara-data.onrender.com/IssueBook", {
-                    name,
-                    id,
-                    currDate,
-                    isbn,
-                    bookName,
-                    author
-                })
-                    .catch((error) => {
-                        console.log(error)
+                const payload = {
+                    name: name,
+                    currDate: currDate,
+                    id: id,
+                    isbn: isbn,
+                    bookName: bookName,
+                    author: author
+                };
+                var authOptions = {
+                    method: 'post',
+                    url: 'https://digital-librara-data.onrender.com/IssueBook',
+                    data: JSON.stringify(payload),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    json: true
+                };
+                axios(authOptions)
+                .then((response) => {
+                    console.log(response);
                     })
-                navigate('/Dashboard')
-                window.location.reload()
+                .catch((error) => {
+                   alert(error)
+                  })
+                // axios({
+                //     method: 'post',
+                //     url: 'https://digital-librara-data.onrender.com/IssueBook',
+                //     data: payload, // you are sending body instead
+                //     headers: {
+                //         // 'Authorization': `bearer ${token}`,
+                //         'Content-Type': 'application/json'
+                //     },
+                // })
+                // navigate('/Dashboard')
+
+                // window.location.reload()
             } else {
                 console.log('student not exit')
             }
@@ -66,49 +89,49 @@ const Issuebook = ({ data, students, setData }) => {
 
     }
     return (
-       <>
-        <div className="title"> Issue Book</div>
-        <div className="Issuebook">
-            <div className="navigate-to-dashboard">
-                <Link to='/Dashboard'> <i className="fa-solid fa-arrow-left"></i> Dashboard</Link>
-            </div>
+        <>
+            <div className="title"> Issue Book</div>
+            <div className="Issuebook">
+                <div className="navigate-to-dashboard">
+                    <Link to='/Dashboard'> <i className="fa-solid fa-arrow-left"></i> Dashboard</Link>
+                </div>
 
-            <div className="issue-book-content">
-                <table>
-                    <tr>
+                <div className="issue-book-content">
+                    <table>
+                        <tr>
+                            {
+                                tableHeading.map((value) => {
+                                    return <th key={Math.random()}>{value.heading}</th>
+                                })
+                            }
+                        </tr>
                         {
-                            tableHeading.map((value) => {
-                                return <th key={Math.random()}>{value.heading}</th>
+                            data.map((value) => {
+                                return (
+
+                                    <tr key={Math.random()} >
+                                        <td>{value.number}</td>
+                                        <td>{value.name}</td>
+                                        <td>{value.author}</td>
+                                        <td >{value.price}</td>
+                                        <td>{value.Branch}</td>
+                                        <td>
+                                            <form onSubmit={handleSubmit}>
+                                                <input type="text" name="name" required />
+                                                <input type="submit" onClick={() => handleId(value)} />
+                                            </form>
+
+                                        </td>
+                                    </tr>
+
+                                )
                             })
                         }
-                    </tr>
-                    {
-                        data.map((value) => {
-                            return (
+                    </table>
+                </div>
 
-                                <tr key={Math.random()} >
-                                    <td>{value.number}</td>
-                                    <td>{value.name}</td>
-                                    <td>{value.author}</td>
-                                    <td >{value.price}</td>
-                                    <td>{value.Branch}</td>
-                                    <td>
-                                        <form onSubmit={handleSubmit}>
-                                            <input type="text" name="name" required />
-                                            <input type="submit" onClick={() => handleId(value)} />
-                                        </form>
-
-                                    </td>
-                                </tr>
-
-                            )
-                        })
-                    }
-                </table>
             </div>
-
-        </div>
-       </>
+        </>
     )
 }
 

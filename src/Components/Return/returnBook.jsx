@@ -23,15 +23,13 @@ const Returnbook = ({  issuedBook }) => {
 
     }
     const handleReturn = (id) => {
-        axios.delete('https://digital-librara-data.onrender.com//'  + id)
+        axios.delete('https://digital-librara-data.onrender.com/IssueBook/'  + id)
             .then((res) => {
                 console.log(res)
             })
             .catch((error) => {
                 console.log(error)
             })
-        // navigate('/Dashboard')
-        // window.location.reload()
     }
 
 

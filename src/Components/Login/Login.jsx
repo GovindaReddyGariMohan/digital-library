@@ -52,44 +52,30 @@ const Login = () => {
         }
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
         const userName = e.target.Uname.value;
         const mail = e.target.mail.value;
         const userPassword = e.target.password.value;
-        // userDetails.filter((value) => {
+        let data = {
+            userName: userName,
+            mail: mail,
+            userPassword: userPassword
+        }
 
-        //     setVerifymail(value.mail === mail)
-
-        //     setTimeout(() => {
-        //         if (verifyMail === false) {
-
-        //             axios.post("http://localhost:4000/UserDetails", {
-        //                 Uname,
-        //                 mail,
-        //                 password,
-
-        //             })
-        //                 .catch((error) => {
-        //                     console.log(error)
-        //                 })
-        //                 navigate('/Dashboard')
-        //         } else {
-        //             console.log('register fail')
-        //         }
-        //     }, 3000);
-        // })
-
-        // window.location.reload()
-        axios.post("https://digital-librara-data.onrender.com/UserDetails", {
-            userName,
-            mail,
-            userPassword,
-
-        })
-            .catch((error) => {
-                console.log(error)
-            })
+        try {
+            const response = fetch('https://digital-librara-data.onrender.com/UserDetails', {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            let json = await response.json();
+            console.log('Success', JSON.stringify(json))
+        } catch (error) {
+            console.error('Mistake', error)
+        }
         localStorage.setItem('userName', userName)
         localStorage.setItem('userPassword', userPassword)
         navigate('/Dashboard')
