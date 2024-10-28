@@ -1,6 +1,8 @@
 import axios from "axios"
 import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 const Login = () => {
     const navigate = useNavigate();
     const [userDetails, setUserdetails] = useState([])
@@ -52,7 +54,7 @@ const Login = () => {
         }
     }
 
-    const handleSubmit = async(e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const userName = e.target.Uname.value;
         const mail = e.target.mail.value;
@@ -111,7 +113,7 @@ const Login = () => {
     ]
     const items = [
         {
-            item: 'Username',
+            item: 'User Name',
             type: 'text',
             name: 'Uname'
         },
@@ -120,15 +122,14 @@ const Login = () => {
             type: 'password',
             name: 'Upassword'
         },
-        {
-            type: 'submit',
-
-        },
-        {
-            type: 'button',
-            value: 'register',
-            click: handleRegister
-        }
+        // {
+        //     type: 'submit',
+        // },
+        // {
+        //     type: 'button',
+        //     value: 'register',
+        //     click: handleRegister
+        // }
     ]
 
 
@@ -139,54 +140,72 @@ const Login = () => {
             <div className="Login-register">
                 <div className="login-title">Digital Library</div>
                 <div className={active ? 'login-form' : 'deactive'}>
-                    <form onSubmit={handleLogin}>
-                        <table>
-                            {
-                                items.map((value) => {
-                                    return (
-                                        <tr key={Math.random()} className="login-items">
-                                            <td>
-                                                <label htmlFor={value.item}>{value.item}</label>
-                                            </td>
-                                            <td>
-                                                <input type={value.type} value={value.value} onClick={value.click} id={value.item} name={value.name} />
-                                            </td>
-                                        </tr>
-                                    )
-                                })
-                            }
-                        </table>
+                    <form autoComplete="off" onSubmit={handleLogin}>
+                        <TextField
+                            label="Email"
+                            required
+                            variant="standard"
+                            color="secondary"
+                            type="email"
+                            sx={{ mb: 3 }}
+                            fullWidth
+                            name="Uname"
+                        />
+                        <TextField
+                            label="Password"
+                            required
+                            variant="standard"
+                            color="secondary"
+                            type="password"
+                            fullWidth
+                            sx={{ mb: 3 }}
+                            name="Upassword"
+                        />
+                        <Button variant="outlined" color="secondary" type="submit">Login</Button>
+                        <Button variant="text" onClick={handleRegister}>Register</Button>
                     </form>
-
                 </div>
                 <div className={active ? ' deactive ' : 'register-form'}>
-                    <form onSubmit={handleSubmit}>
-                        <table>
-                            {
-                                registerItems.map((value, id) => {
-                                    return (
-                                        <tr key={Math.random()} className="register-items">
-                                            <td>
-                                                <label htmlFor={`${value.item}-${id}`}>{value.item}</label>
-                                            </td>
-                                            <td>
-                                                <input type={value.type} value={value.button} onClick={value.click} id={`${value.item}-${id}`} name={value.name} required />
-                                            </td>
-                                        </tr>
-                                    )
-                                })
-                            }
-                        </table>
-                    </form>
+                    <form onSubmit={handleSubmit} autoComplete="off">
 
+                        <TextField
+                            label="User Name"
+                            required
+                            variant="standard"
+                            color="secondary"
+                            type="text"
+                            sx={{ mb: 3 }}
+                            fullWidth
+                            name="Uname"
+                        />
+                        <TextField
+                            label="Email"
+                            required
+                            variant="standard"
+                            color="secondary"
+                            type="email"
+                            sx={{ mb: 3 }}
+                            fullWidth
+                            name="mail"
+                        />
+                        <TextField
+                            label="Password"
+                            required
+                            variant="standard"
+                            color="secondary"
+                            type="password"
+                            fullWidth
+                            sx={{ mb: 3 }}
+                            name="password"
+                        />
+                        <Button variant="outlined" color="secondary" type="submit">Rigister</Button>
+                        <Button variant="text" onClick={handleRegister}>Login</Button>
+
+                    </form>
                 </div>
             </div>
         </>
 
     )
-
-
-
-
 }
 export default Login;

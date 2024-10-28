@@ -39,54 +39,63 @@ const Issuebook = ({ data, students, setData }) => {
 
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const name = e.target.name.value
         const currDate = new Date().toLocaleDateString();
 
-        students.forEach(async (product) => {
-            if (product.name === name) {
-                const payload = {
-                    name: name,
-                    currDate: currDate,
-                    id: id,
-                    isbn: isbn,
-                    bookName: bookName,
-                    author: author
-                };
-                var authOptions = {
-                    method: 'post',
-                    url: 'https://digital-librara-data.onrender.com/IssueBook',
-                    data: JSON.stringify(payload),
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    json: true
-                };
-                axios(authOptions)
-                .then((response) => {
-                    console.log(response);
-                    })
-                .catch((error) => {
-                   alert(error)
-                  })
-                // axios({
-                //     method: 'post',
-                //     url: 'https://digital-librara-data.onrender.com/IssueBook',
-                //     data: payload, // you are sending body instead
-                //     headers: {
-                //         // 'Authorization': `bearer ${token}`,
-                //         'Content-Type': 'application/json'
-                //     },
-                // })
-                // navigate('/Dashboard')
+        // students.forEach(async (product) => {
+        //     if (product.name === name) {
 
-                
+        // axios.post("https://digital-librara-data.onrender.com/IssueBook", {
+        //     name,
+        //     currDate,
+        //     id,
+        //     isbn,
+        //     author,
+        //     bookName
+        // }, {
+        //     headers: { 'Content-Type': 'application/json' }
+        // }).then(function (response) {
+        //     console.log(response);
+        // }).catch(function (error) {
+        //     console.log(error);
+        // })
+        // axios({
+        //     method: 'post',
+        //     url: 'https://digital-librara-data.onrender.com/IssueBook',
+        //     data: payload, // you are sending body instead
+        //     headers: {
+        //         // 'Authorization': `bearer ${token}`,
+        //         'Content-Type': 'application/json'
+        //     },
+        // })
+        // navigate('/Dashboard')
+
+
+        //     } else {
+        //         console.log('student not exit')
+        //     }
+        // })
+        // e.preventDefault();
+        const formData = {
+            name,
+            currDate,
+            id,
+            isbn,
+            author,
+            bookName
+        }
+        try {
+            const response = await axios.post("https://digital-librara-data.onrender.com/IssueBook", formData);
+            if (response.status === 200) {
+              navigate("/success");
             } else {
-                console.log('student not exit')
+              throw new Error("Failed to complete the process");
             }
-        })
-
+          } catch (error) {
+            console.error(error);
+          }
     }
     return (
         <>
