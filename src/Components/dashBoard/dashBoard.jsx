@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import Charts from "./Chart1";
 import AphexChart from "./Chart2";
 import { Link, useNavigate } from "react-router-dom";
-// import ApexCharts from "./pie.js";
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 
 const Dashboard = ({ issuedBook, data }) => {
     const navigate = useNavigate();
@@ -10,7 +16,7 @@ const Dashboard = ({ issuedBook, data }) => {
     const handleNavbar = () => {
         setActive(active ? false : true)
     }
-    const removeHandler=()=>{
+    const removeHandler = () => {
         setActive(false)
     }
     const bookItems = [
@@ -52,22 +58,27 @@ const Dashboard = ({ issuedBook, data }) => {
     ]
     const tableHeading = [
         {
-            heading: 'ISBN Number'
+            heading: 'ISBN Number',
         },
         {
-            heading: 'Book Name'
+            heading: 'Book Name',
+            align: 'right'
         },
         {
-            heading: 'Author'
+            heading: 'Author',
+            align: 'right'
         },
         {
-            heading: 'Roll No.'
+            heading: 'Roll No.',
+            align: 'right'
         },
         {
-            heading: 'Name'
+            heading: 'Name',
+            align: 'right'
         },
         {
-            heading: 'Issued On'
+            heading: 'Issued On',
+            align: 'right'
         },
 
 
@@ -80,8 +91,6 @@ const Dashboard = ({ issuedBook, data }) => {
 
     }
 
-
-
     return (
         <div className="Dashboard">
             <div className="title">Dashboard </div>
@@ -90,7 +99,7 @@ const Dashboard = ({ issuedBook, data }) => {
                 <div onClick={logout} className="profile-logout"><i className="fa-solid fa-right-from-bracket"></i> logout</div>
             </div>
             <div className="Dashboard-body">
-                <div  className={active ? "book-status " : "active-item book-status"}>
+                <div className={active ? "book-status " : "active-item book-status"}>
                     <i className="fa-solid fa-xmark x-mark" onClick={removeHandler}></i>
                     <table >
                         {
@@ -120,33 +129,41 @@ const Dashboard = ({ issuedBook, data }) => {
                             <AphexChart />
                         </div>
                     </div>
-                    <div className="issued-books">
+                    <div >
                         <h3>Issued Book Summary</h3>
-                        <div className="issued-books-table">
-                            <table>
-                                <tr>
-                                    {
-                                        tableHeading.map((value) => {
-                                            return <th key={Math.random()}>{value.heading}</th>
-                                        })
-                                    }
-                                </tr>
-                                {
-                                    issuedBook.map((value) => {
-                                        return (
-                                            <tr key={Math.random()}>
-                                                <td>{value.isbn}</td>
-                                                <td>{value.bookName}</td>
-                                                <td>{value.author}</td>
-                                                <td>{value.id}</td>
-                                                <td>{value.name}</td>
-                                                <td>{value.currDate}</td>
-                                            </tr>
-                                        )
-                                    })
-                                }
-
-                            </table>
+                        <div >
+                            <TableContainer component={Paper}>
+                                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                                    <TableHead>
+                                        <TableRow>
+                                            {
+                                                tableHeading.map((value) => {
+                                                    return (
+                                                        <TableCell align={value.align} key={Math.random()}>{value.heading}</TableCell>
+                                                    )
+                                                })
+                                            }
+                                        </TableRow>
+                                    </TableHead>
+                                    <TableBody>
+                                        {issuedBook.map((row) => (
+                                            <TableRow
+                                                key={row.name}
+                                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                            >
+                                                <TableCell component="th" scope="row">
+                                                    {row.isbn}
+                                                </TableCell>
+                                                <TableCell align="right">{row.bookName}</TableCell>
+                                                <TableCell align="right">{row.author}</TableCell>
+                                                <TableCell align="right">{row.id}</TableCell>
+                                                <TableCell align="right">{row.name}</TableCell>
+                                                <TableCell align="right">{row.currDate}</TableCell>
+                                            </TableRow>
+                                        ))}
+                                    </TableBody>
+                                </Table>
+                            </TableContainer>
                         </div>
                     </div>
                 </div>
