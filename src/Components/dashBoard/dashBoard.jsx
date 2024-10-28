@@ -10,7 +10,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-const Dashboard = ({ issuedBook, data }) => {
+const Dashboard = ({ issuedBook }) => {
     const navigate = useNavigate();
     const [active, setActive] = useState(false)
     const handleNavbar = () => {
@@ -148,7 +148,7 @@ const Dashboard = ({ issuedBook, data }) => {
                                     <TableBody>
                                         {issuedBook.map((row) => (
                                             <TableRow
-                                                key={row.name}
+                                                key={Math.random()}
                                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                             >
                                                 <TableCell component="th" scope="row">

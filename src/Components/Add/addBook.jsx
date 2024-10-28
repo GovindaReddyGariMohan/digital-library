@@ -1,6 +1,15 @@
 import React from "react"
 import axios from 'axios';
 import { useNavigate, Link } from "react-router-dom"
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+const Branches = [
+    { label: 'IT' },
+    { label: 'Civil', },
+    { label: 'Mechanical' },
+];
 
 const Addbook = () => {
     const navigate = useNavigate();
@@ -54,27 +63,6 @@ const Addbook = () => {
             max: 200,
             values: 'price',
         },
-        {
-            item: 'Branch',
-            name: 'branch',
-            select: [
-                {
-                    item: 'select'
-                },
-                {
-                    item: 'IT'
-                },
-                {
-                    item: 'Civil'
-                },
-                {
-                    item: 'Mechanical'
-                }
-            ]
-        },
-        {
-            type: 'submit'
-        }
     ]
 
 
@@ -112,51 +100,68 @@ const Addbook = () => {
     return (
         <>
             <div className="title">  Add Book </div>
+            <div className="navigate-to-dashboard">
+                <Link to='/Dashboard'> <i className="fa-solid fa-arrow-left"></i> Dashboard</Link>
+            </div>
             <div className="add-book">
-                <div className="navigate-to-dashboard">
-                    <Link to='/Dashboard'> <i className="fa-solid fa-arrow-left"></i> Dashboard</Link>
-                </div>
-                <form onSubmit={handleSubmit}>
-                    <table >
-                        {
-                            add.map((value) => {
-                                return (
-                                    <tr key={Math.random()}>
-                                        <td>
-                                            <label htmlFor={value.values}>{value.item}</label>
-                                        </td>
-                                        <td className={value.item === 'Branch' ? 'deactive' : `${`'active' `}`}>
-                                            <input
-                                                type={value.type}
-                                                className={value.class}
-                                                min={value.type === 'number' ? value.min : 0}
-                                                max={value.type === 'number' ? value.max : 0}
-                                                minLength={value.type === 'text' ? value.min : ''}
-                                                maxLength={value.type === 'text' ? value.max : ''}
-                                                id={value.values}
-                                                name={value.values}
 
-                                            />
-                                        </td>
-                                        <td className={value.item === 'Branch' ? 'active' : 'deactive'}>
-                                            <select name={value.name} id={value.name} >
-                                                {
-                                                    value.select?.map((select) => {
-                                                        return (
-                                                            <option value={select.item} key={Math.random()}>{select.item}</option>
-                                                        )
-                                                    })
-                                                }
-                                            </select>
-                                        </td>
+                <form onSubmit={handleSubmit} autoComplete="off">
 
-                                    </tr>
+                    {
+                        add.map((value) => {
+                            return (
+                                <TextField
+                                    key={Math.random()}
+                                    label={value.item}
+                                    type={value.type}
+                                    variant="standard"
+                                    className="form-content"
+                                    name={value.values}
+                                    required
+                                    
+                                />
+                            )
+                        })
+                    }
+                    <Autocomplete
+                        id="country-select-demo"
+                        className="form-content"
+                        sx={{ width: 300 }}
+                        options={Branches}
+                        autoHighlight
+                        getOptionLabel={(option) => option.label}
+                        renderOption={(props, option) => {
+                            const { key, ...optionProps } = props;
+                            return (
+                                <Box
+                                    key={key}
+                                    component="li"
+                                    sx={{ '& > img': { mr: 2, flexShrink: 0 } }}
+                                    {...optionProps}
+                                >
 
-                                )
-                            })
-                        }
-                    </table>
+                                    {option.label}
+                                </Box>
+                            );
+                        }}
+                        renderInput={(params) => (
+                            <TextField
+                                {...params}
+                                variant="standard"
+                                label="Choose a country"
+                                name="branch"
+                                slotProps={{
+                                    htmlInput: {
+                                        ...params.inputProps,
+                                        autoComplete: 'new-password', // disable autocomplete and autofill
+                                    },
+                                }}
+                            />
+                        )}
+                    />
+                    <Button variant="contained" type="submit">Contained</Button>
                 </form>
+
             </div>
         </>
     )

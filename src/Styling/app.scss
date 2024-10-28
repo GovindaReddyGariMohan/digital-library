@@ -397,60 +397,72 @@ a {
 
 .add-book {
     font-size: 18px;
-    padding-top: 59px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 
 
     form {
-        table {
-            margin: auto;
+        // table {
+        //     margin: auto;
 
-            input[type=submit] {
-                width: 100%;
-                background-color: #4472C4;
-                color: white;
-                border: solid 1px black;
-            }
+        //     input[type=submit] {
+        //         width: 100%;
+        //         background-color: #4472C4;
+        //         color: white;
+        //         border: solid 1px black;
+        //     }
 
-            tr {
-                .deactive {
-                    display: none;
-                }
+        //     tr {
+        //         .deactive {
+        //             display: none;
+        //         }
 
-                .Details-block {
-                    display: none;
-                }
+        //         .Details-block {
+        //             display: none;
+        //         }
 
-                td {
-                    padding: 10px 0;
+        //         td {
+        //             padding: 10px 0;
 
-                    label {
-                        color: red;
-                        font-weight: 700;
+        //             label {
+        //                 color: red;
+        //                 font-weight: 700;
 
-                    }
+        //             }
 
-                    input {
-                        width: 55vh;
-                        height: 5vh;
-                    }
+        //             input {
+        //                 width: 55vh;
+        //                 height: 5vh;
+        //             }
 
-                    .Details {
-                        height: 15vh;
-                    }
+        //             .Details {
+        //                 height: 15vh;
+        //             }
 
-                    select {
-                        width: 55vh;
-                        height: 5vh;
-                    }
+        //             select {
+        //                 width: 55vh;
+        //                 height: 5vh;
+        //             }
 
-                }
-            }
+        //         }
+        //     }
+        // }
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 30%;
+        gap: 20px;
+        .form-content{
+            width: 100%;
         }
     }
 }
 
 .navigate-to-dashboard {
-    padding: 20px;
+    padding: 80px;
 
     a {
         color: red;
@@ -466,6 +478,7 @@ a {
 .Delete-book {
     font-size: 18px;
     padding-top: 59px;
+
     .delete-book-content {
         table {
             margin: auto;
@@ -507,6 +520,7 @@ a {
 
 .view-book {
     padding-top: 59px;
+
     .view-book-content {
         table {
             margin: auto;
@@ -543,6 +557,7 @@ a {
 
 .Issuebook {
     padding-top: 59px;
+
     .issue-book-content {
         table {
             margin: auto;
@@ -589,6 +604,7 @@ a {
 .return-book {
     font-size: 18px;
     padding-top: 59px;
+
     table {
         margin: auto;
 
@@ -613,6 +629,7 @@ a {
 
 .Add-Student {
     padding-top: 59px;
+
     .student-details {
         display: flex;
         flex-direction: column;
