@@ -1,34 +1,50 @@
 import axios from "axios";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import { DataGrid } from '@mui/x-data-grid';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import Paper from '@mui/material/Paper';
 const Delete = ({ data, setData }) => {
-    const tableHeading = [
+
+    const rows = [
+        { field: 'number', headerName: 'ISBN Number', width: 70 },
+        { field: 'name', headerName: 'Book Name', width: 130 },
+        { field: 'author', headerName: 'Author', width: 130 },
         {
-            heading: 'ISBN Number'
+            field: 'publication',
+            headerName: 'Publication',
+            width: 90,
         },
         {
-            heading: 'Book Name'
+            field: 'qty',
+            headerName: 'Qty',
+            type: 'number',
+            width: 90,
         },
         {
-            heading: 'Author'
+            field: 'price',
+            headerName: 'Price',
+            type: 'number',
+            width: 90,
         },
         {
-            heading: 'Publication'
+            field: 'Branch',
+            headerName: 'Branch',
+            width: 90,
         },
-        {
-            heading: 'Qty.'
-        },
-        {
-            heading: 'Price'
-        },
-        {
-            heading: 'Branch'
-        },
-        {
-            heading: 'remove'
-        }
-    ]
+        // {
+        //     field: '<i className="fa-solid fa-trash"></i>',
+        //     headerName: 'Remove',
+        //     width: 90,
+        // },
+
+
+    ];
+
+
+    const paginationModel = { page: 0, pageSize: 5 };
+    const [active, setActive] = useState(false)
+    const [remove, setRemove] = useState()
 
     const handleRemove = (id) => {
 
@@ -41,41 +57,43 @@ const Delete = ({ data, setData }) => {
             })
         window.location.reload()
     }
+
+    // useEffect(() => {
+
+    //     if (remove?.length === undefined && remove?.length === 0) {
+    //         setActive(false)
+    //     } else {
+    //         setActive(true)
+    //     }
+    // }, [active])
     return (
         <>
             <div className="title"> Delete Book</div>
             <div className="Delete-book">
                 <div className="navigate-to-dashboard">
                     <Link to='/Dashboard'> <i className="fa-solid fa-arrow-left"></i> Dashboard</Link>
+                    {
+                        remove?.length && remove &&
+                        <DeleteForeverIcon  />
+                    }
                 </div>
-                <div className="delete-book-content">
-                    <table>
-                        <tr>
-                            {
-                                tableHeading.map((value) => {
-                                    return <th key={Math.random()}>{value.heading}</th>
-                                })
-                            }
-                        </tr>
-                        {
-                            data.map((value) => {
-                                return (
-                                    <tr key={Math.random()}>
-                                        <td>{value.number}</td>
-                                        <td>{value.name}</td>
-                                        <td>{value.author}</td>
-                                        <td>{value.publication}</td>
-                                        <td>{value.qty}</td>
-                                        <td>{value.price}</td>
-                                        <td>{value.Branch}</td>
-                                        <td onClick={() => handleRemove(value.id)}><i className="fa-solid fa-trash"></i></td>
-                                    </tr>
 
-                                )
-                            })
-                        }
-                    </table>
-                </div>
+                <Paper sx={{ height: 300, width: '100%' }} >
+                    <DataGrid
+                        rows={data}
+                        columns={rows}
+                        initialState={{ pagination: { paginationModel } }}
+                        pageSizeOptions={[5, 10]}
+                        sx={{ border: 0 }}
+                        checkboxSelection
+                        onRowSelectionModelChange={(data) => {
+                            return (
+                                setRemove(data)
+                            )
+                        }}
+                    />
+
+                </Paper>
             </div>
         </>
     )

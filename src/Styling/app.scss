@@ -453,9 +453,10 @@ a {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 30%;
+        width: 80%;
         gap: 20px;
-        .form-content{
+
+        .form-content {
             width: 100%;
         }
     }
@@ -463,6 +464,9 @@ a {
 
 .navigate-to-dashboard {
     padding: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     a {
         color: red;
@@ -473,6 +477,8 @@ a {
     a:hover {
         color: blue;
     }
+
+    
 }
 
 .Delete-book {
