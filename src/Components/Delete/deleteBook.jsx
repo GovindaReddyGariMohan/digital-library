@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { DataGrid } from '@mui/x-data-grid';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import Paper from '@mui/material/Paper';
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
 const Delete = ({ data, setData }) => {
 
     const rows = [
@@ -43,39 +45,55 @@ const Delete = ({ data, setData }) => {
 
 
     const paginationModel = { page: 0, pageSize: 5 };
-    const [active, setActive] = useState(false)
+    // const [active, setActive] = useState(false)
     const [remove, setRemove] = useState()
 
-    const handleRemove = (id) => {
+    const handleRemove = () => {
 
-        axios.delete('https://digital-librara-data.onrender.com/books/' + id)
-            .then((res) => {
-                console.log(res)
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-        window.location.reload()
+        // axios.delete('https://digital-librara-data.onrender.com/books/' + id)
+        //     .then((res) => {
+        //         console.log(res)
+        //     })
+        //     .catch((error) => {
+        //         console.log(error)
+        //     })
+        // window.location.reload()
     }
+    const [active, setActive] = useState(false);
+    useEffect(() => {
 
-    // useEffect(() => {
+        if (remove?.length >= 1) {
+            setActive(true)
+        } else {
+            setActive(false)
+        }
+    })
 
-    //     if (remove?.length === undefined && remove?.length === 0) {
-    //         setActive(false)
-    //     } else {
-    //         setActive(true)
-    //     }
-    // }, [active])
+
+
+
+
+    // return (
+    //     <div className="App">
+
+    //         <button onClick={toggle}>Toggle show</button>
+    //     </div>
+    // );
+
     return (
         <>
             <div className="title"> Delete Book</div>
             <div className="Delete-book">
                 <div className="navigate-to-dashboard">
                     <Link to='/Dashboard'> <i className="fa-solid fa-arrow-left"></i> Dashboard</Link>
-                    {
-                        remove?.length && remove &&
-                        <DeleteForeverIcon  />
-                    }
+
+                    <Tooltip title="Delete" className={active ? 'show' : 'hide'}>
+                        <IconButton>
+                            <DeleteForeverIcon onClick={handleRemove} />
+                        </IconButton>
+                    </Tooltip>
+
+
                 </div>
 
                 <Paper sx={{ height: 300, width: '100%' }} >

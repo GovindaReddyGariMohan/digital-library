@@ -478,7 +478,14 @@ a {
         color: blue;
     }
 
-    
+    .show {
+        visibility: visible;
+    }
+
+    .hide {
+        visibility: hidden;
+    }
+
 }
 
 .Delete-book {
